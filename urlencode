@@ -1,0 +1,4 @@
+#!/bin/bash
+
+value=`cat $1`
+echo `perl -MURI::Escape -e "print uri_escape('$value');"`
