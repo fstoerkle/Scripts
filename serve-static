@@ -3,4 +3,5 @@
 PORT=8080
 if [ ! -z $1 ] ; then PORT=$1 ; fi
 
+open "http://localhost:$PORT"
 python -m SimpleHTTPServer $PORT

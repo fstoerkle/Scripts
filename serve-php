@@ -3,4 +3,7 @@
 PORT=8080
 if [ ! -z $1 ] ; then PORT=$1 ; fi
 
-php -S localhost:$PORT
+HOST="localhost:$PORT"
+
+open "http://$HOST"
+php -S "$HOST"
