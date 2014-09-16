@@ -1,0 +1,12 @@
+#!/bin/bash
+
+case "$1" in
+"node")
+    echo -n "Latest NodeJS version: "
+    http http://nodejs.org | grep -i 'current version' | grep -E -o 'v(\d{1,2}\.){2}\d{1,2}'
+    ;;
+"ruby")
+    echo -n "Latest Ruby version (MRI): "
+    http https://www.ruby-lang.org/en/downloads/ | grep -i --context=1 "current stable" | grep -E -o 'Ruby \d(\.\d{1,2}){2}' | sed 's/Ruby //g'
+    ;;
+esac

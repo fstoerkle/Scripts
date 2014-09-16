@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+start_time = Time.now
+
+DEFAULT_MINUTES = 2
+DEFAULT_MESSAGE = "You're tea is ready."
+
+minutes = if ARGV.length > 0 then ARGV[0].to_i else DEFAULT_MINUTES end
+message = if ARGV.length > 1 then ARGV[1] else DEFAULT_MESSAGE end
+
+puts "Setting your timer for #{minutes} minute#{minutes > 1 ? 's' : ''}."
+
+end_time = start_time + 60 * minutes
+while Time.now < end_time do
+  sleep 1
+  print "."
+end
+
+puts
+puts message
+`say "#{message}"`

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+BASE_DIR="/Volumes/Boxcryptor/Dropbox/Safe"
+
+if [ -z $1 ] ; then
+  ls -1 "$BASE_DIR"
+else
+  if [ -n $2 -a "$1" == "-e" ] ; then
+    vim "$BASE_DIR/$2.txt"
+  else
+    less "$BASE_DIR/$1.txt"
+  fi
+fi
+
